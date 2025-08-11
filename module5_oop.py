@@ -25,12 +25,21 @@ def main():
         print("Please enter a valid positive integer.")
         return
     
+    # Put the positive integer in the list
     for i in range(N):
-        num = int(input(f"Enter number {i+1}: "))
-        num_list.insert_number(num)
+        try:
+            num = int(input(f"Enter positive integer number {i+1}: "))
+            if num <= 0:
+                print("Please enter a positive integer.")
+                return
+            num_list.insert_number(num)
+        except ValueError:
+            print("Please enter a valid positive integer.")
+            return
 
     X = int(input("Enter the number want to search for: "))
 
+    #Search the result
     result = num_list.search_number(X)
     print(result)
 
